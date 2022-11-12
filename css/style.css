@@ -30,7 +30,7 @@
 
 /* bottoni */
 .prev, .next {
-    background-color:  rgb(240, 240, 240);
+    background-color:  rgb(255, 255, 255);
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -49,5 +49,9 @@
 
 .next {
     bottom: 10px;
+}
+
+.hidden {
+    display: none;
 }
 

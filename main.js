@@ -31,15 +31,21 @@ const next = document.querySelector(".next");
 let active = 0;
 next.addEventListener("click",
     function(){
-        if (active < items.length -1) {
+        if (active < imgs.length -1) {
             //togli classe active elemento corrente
             items[active].classList.remove("active");
             //incrementa indice
             active++;
             //aggiungi classe active elemento successivo
             items[active].classList.add("active");
-        } 
-        
+    
+            //fai scomparire pulsante una volta raggiunta l'ultima immagine (ultimo indice array imgs)
+            if (active === imgs.length - 1) {
+                next.classList.add("hidden");
+            } else if (active < imgs.length - 1) { //fai ricomparire pulsante quando sei in mezzo allo slideshow (active non è piu ultimo indice)
+                prev.classList.remove("hidden");
+            }
+        }    
     }
 );
 
@@ -54,7 +60,13 @@ prev.addEventListener("click",
             active--;
             //aggiungi classe active elemento precedente
             items[active].classList.add("active");
+            
+            //fai scomparire pulsante una volta raggiunta prima immagine (primo indice array imgs)
+            if (active === 0) {
+                prev.classList.add("hidden");
+            } else if (active > 0) { //fai ricomparire pulsante quando sei in mezzo allo slideshow (active non è piu primo indice)
+                next.classList.remove("hidden");
+            }
         } 
-        
     }
 );
